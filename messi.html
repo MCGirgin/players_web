@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MESSI</title>
+    <link rel="icon" type="image/x-icon" href="images/girgin.ico" />
+    <style>
+      *,
+      *:before,
+      *:after {
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: gray;
+      }
+
+      label .menu {
+        position: absolute;
+        left: -100px;
+        top: -100px;
+        z-index: 100;
+        width: 200px;
+        height: 200px;
+        background: #282e34;
+        border-radius: 50% 50% 50% 50%;
+        -webkit-transition: 0.5s ease-in-out;
+        transition: 0.5s ease-in-out;
+        box-shadow: 0 0 10px 10px #282e34, 0 0 10px 0 #282e34;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      label .hamburger {
+        position: absolute;
+        top: 135px;
+        right: 50px;
+        width: 30px;
+        height: 3px;
+        background: white;
+        display: block;
+        -webkit-transform-origin: center;
+        transform-origin: center;
+        -webkit-transition: 0.5s ease-in-out;
+        transition: 0.5s ease-in-out;
+        user-select: none;
+      }
+
+      label .hamburger:after,
+      label .hamburger:before {
+        -webkit-transition: 0.5s ease-in-out;
+        transition: 0.5s ease-in-out;
+        content: "";
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: white;
+        user-select: none;
+      }
+
+      label .hamburger:before {
+        top: -10px;
+      }
+
+      label .hamburger:after {
+        bottom: -10px;
+      }
+
+      label input {
+        display: none;
+      }
+
+      label input:checked + .menu {
+        box-shadow: 0 0 50px 100vw #282e34, 0 0 50px 100vw #282e34;
+        border-radius: 0px;
+      }
+
+      label input:checked + .menu .hamburger {
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+
+      label input:checked + .menu .hamburger:after {
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+        bottom: 0;
+      }
+
+      label input:checked + .menu .hamburger:before {
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+        top: 0;
+      }
+
+      label input:checked + .menu + ul {
+        opacity: 1;
+        display: block;
+      }
+
+      label ul {
+        display: none;
+        font-size: 50px;
+        z-index: 200;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        -webkit-transition: 0.25s 0s ease-in-out;
+        transition: 0.25s 0s ease-in-out;
+        list-style: none;
+        -webkit-animation: fade-in 1s, fade-out 1s 965655415458246985s;
+        animation: fade-in 1s, fade-out 1s 965655415458246985s;
+      }
+
+      @-webkit-keyframes fade-in {
+        from {opacity: 0;}
+        to {opacity: 1;}
+        }
+
+        @keyframes fade-in {
+        from {opacity: 0;}
+        to {opacity: 1;}
+        }
+
+        @-webkit-keyframes fade-out {
+        from {opacity: 1;}
+        to {opacity: 0;}
+        }
+
+        @keyframes fade-out {
+        from {opacity: 1;}
+        to {opacity: 0;}
+        }
+
+      label a {
+        margin-bottom: 1em;
+        display: block;
+        color: White;
+        text-decoration: none;
+      }
+
+      h1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        width: 80%;
+        text-align: center;
+      }
+
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        font: 400 15px/1.8 "Lato", sans-serif;
+        color: #777;
+      }
+
+      .bgimg-1,
+      .bgimg-2,
+      .bgimg-3 {
+        position: relative;
+        opacity: 0.65;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .bgimg-1 {
+        background-image: url("images/messi.jpg");
+        min-height: 100%;
+      }
+
+      .bgimg-2 {
+        background-image: url("images/messi2.jpg");
+        min-height: 400px;
+      }
+
+      .bgimg-3 {
+        background-image: url("images/messi3.jpg");
+        min-height: 400px;
+      }
+
+      .caption {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        text-align: center;
+        color: #000;
+      }
+
+      .caption span.border {
+        background-color: #111;
+        color: #fff;
+        padding: 18px;
+        font-size: 25px;
+        letter-spacing: 10px;
+        border: 5px solid black;
+        border-radius: 10px;
+      }
+
+      h3 {
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        font: 20px "Lato", sans-serif;
+        color: #111;
+      }
+
+      /* width */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px black;
+        border-radius: 5px;
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: #495159;
+        border-radius: 10px;
+      }
+
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background-color: #282e34;
+      }
+
+      p {
+        font-size: 15px;
+      }
+      
+    </style>
+  </head>
+  <body id="body">
+    <label>
+      <input type="checkbox" class="inputlarim" />
+      <span class="menu"> <span class="hamburger"></span> </span>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="players.html">Players</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </label>
+    <div class="bgimg-1" id="top">
+      <div class="caption">
+          <span class="border">LIONEL MESSI</span>
+      </div>
+    </div>
+    <div
+      style="
+        color: #777;
+        background-color: white;
+        text-align: center;
+        padding: 50px 80px;
+        text-align: justify;
+      "
+    >
+      <h3 style="text-align: center">Lionel Messi</h3>
+      <p>
+        Lionel Andrés Messi (Spanish pronunciation: [ljoˈnel anˈdɾes
+        ˈmesi]; born 24 June 1987), also known as Leo Messi, is an
+        Argentine professional footballer who plays as a forward for Ligue 1
+        club Paris Saint-Germain and captains the Argentina national team.
+        Widely regarded as one of the greatest players of all time, Messi has
+        won a record seven Ballon d'Or awards, a record six European
+        Golden Shoes, and in 2020 was named to the Ballon d'Or Dream Team. Until
+        leaving the club in 2021, he had spent his entire professional career
+        with Barcelona, where he won a club-record 35 trophies, including ten La
+        Liga titles, seven Copa del Rey titles and four UEFA Champions Leagues.
+        A prolific goalscorer and creative playmaker, Messi holds the records
+        for most goals in La Liga , a La Liga and European league season
+        , most hat-tricks in La Liga and the UEFA Champions League,
+        and most assists in La Liga, a La Liga season  and the Copa
+        América. He also holds the record for most international goals by a
+        South American male. Messi has scored over 750 senior career goals
+        for club and country, and has the most goals by a player for a single
+        club.
+      </p>
+    </div>
+    <div class="bgimg-2">
+      <div class="caption">
+        <span
+          class="border"
+          style="background-color: #282e34; font-size: 25px; color: #f7f7f7"
+          >CHILDHOOD</span
+        >
+      </div>
+    </div>
+    <div style="position: relative">
+      <div
+        style="
+          color: #ddd;
+          background-color: #282e34;
+          text-align: center;
+          padding: 50px 80px;
+          text-align: justify;
+        "
+      >
+        <p>
+          Born and raised in central Argentina, Messi relocated to Spain to join
+          Barcelona at the age of 13, for whom he made his competitive debut
+          aged 17 in October 2004. He established himself as an integral player
+          for the club within the next three years, and in his first
+          uninterrupted season in 2008–09 he helped Barcelona achieve the first
+          treble in Spanish football; that year, aged 22, Messi won his first
+          Ballon d'Or. Three successful seasons followed, with Messi winning
+          four consecutive Ballons d'Or, making him the first player to win the
+          award four times and in a row. During the 2011–12 season, he set
+          the La Liga and European records for most goals scored in a single
+          season, while establishing himself as Barcelona's all-time top scorer.
+          The following two seasons, Messi finished second for the Ballon d'Or
+          behind Cristiano Ronaldo (his perceived career rival), before
+          regaining his best form during the 2014–15 campaign, becoming the
+          all-time top scorer in La Liga and leading Barcelona to a historic
+          second treble, after which he was awarded a fifth Ballon d'Or in 2015.
+          Messi assumed captaincy of Barcelona in 2018, and in 2019 he won a
+          record sixth Ballon d'Or. Out of contract, he signed for Paris
+          Saint-Germain in August 2021.
+        </p>
+      </div>
+    </div>
+    <div class="bgimg-3">
+      <div class="caption">
+        <span
+          class="border"
+          style="background-color: #282e34; font-size: 25px; color: #f7f7f7"
+          >FOOTBALL LIFE</span
+        >
+      </div>
+    </div>
+    <div style="position: relative">
+      <div
+        style="
+          color: #ddd;
+          background-color: #282e34;
+          text-align: center;
+          padding: 50px 80px;
+          text-align: justify;
+        "
+      >
+        <p>
+          An Argentine international, Messi holds the national record for
+          appearances and is also the country's all-time leading goalscorer. At
+          youth level, he won the 2005 FIFA World Youth Championship, finishing
+          the tournament with both the Golden Ball and Golden Shoe, and an
+          Olympic gold medal at the 2008 Summer Olympics. His style of play as a
+          diminutive, left-footed dribbler drew comparisons with his compatriot
+          Diego Maradona, who described Messi as his successor. After his senior
+          debut in August 2005, Messi became the youngest Argentine to play and
+          score in a FIFA World Cup in 2006, and reached the final of the 2007
+          Copa América, where he was named young player of the tournament. As
+          the squad's captain from August 2011, he led Argentina to three
+          consecutive finals: the 2014 FIFA World Cup, for which he won the
+          Golden Ball, and the 2015 and 2016 Copa América, winning the Golden
+          Ball in the 2015 edition. After announcing his international
+          retirement in 2016, he reversed his decision and led his country to
+          qualification for the 2018 FIFA World Cup, a third-place finish at the
+          2019 Copa América, and won the 2021 Copa América, while winning the
+          Golden Ball and Golden Boot award for the latter. This achievement
+          would see him receive a record seventh Ballon d'Or in 2021.
+        </p>
+      </div>
+    </div>
+    <div class="bgimg-1">
+      <div class="caption">
+        <span class="border">EARNINGS</span>
+      </div>
+    </div>
+    <div style="position: relative">
+      <div
+        style="
+          color: #ddd;
+          background-color: #282e34;
+          text-align: center;
+          padding: 50px 80px;
+          text-align: justify;
+        "
+      >
+        <p>
+          Messi has endorsed sportswear company Adidas since 2006. According to
+          France Football, he was the world's highest-paid footballer for five
+          years out of six between 2009 and 2014, and was ranked the world's
+          highest-paid athlete by Forbes in 2019 and 2022.[11] Messi was among
+          Time's 100 most influential people in the world in 2011 and 2012. In
+          February 2020, he was awarded the Laureus World Sportsman of the Year,
+          thus becoming the first footballer and the first team sport athlete to
+          win the award. Later that year, Messi became the second footballer
+          (and second team-sport athlete) to surpass $1 billion in career
+          earnings.
+        </p>
+      </div>
+    </div>
+    <div class="bgimg-2">
+      <div class="caption">
+        <span class="border">COOL!</span>
+      </div>
+    </div>
+    <div style="position: relative">
+      <div
+        style="
+          color: #ddd;
+          background-color: #282e34;
+          text-align: center;
+          padding: 10px 80px;
+          text-align: justify;
+        "
+      >
+        <p>
+          This website has built by MCGirgin®. If you want to contact with stuff, you can go <a href="contact.html" style="color: white">contact</a> page. 
+        </p>
+      </div>
+    </div>
+
+
+    <a href="#top">
+      <button   id="myBtn" title="Go to top">▲</button>
+    </a>
+    
+
+
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+      }
+      
+      #myBtn {
+        display: none;
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        z-index: 99;
+        font-size: 18px;
+        border: none;
+        outline: none;
+        background-color: #282e34;
+        border: 5px solid black;
+        color: white;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 20px;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 965655415458246985s;
+        animation: fadein 0.5s, fadeout 0.5s 965655415458246985s;
+      }
+      
+      #myBtn:hover {
+        background-color: #555;
+      }
+
+      @-webkit-keyframes fadein {
+        from {bottom: 0px; opacity: 0;}
+        to {bottom: 10px; opacity: 1;}
+        }
+
+        @keyframes fadein {
+        from {bottom: 0px; opacity: 0;}
+        to {bottom: 10px; opacity: 1;}
+        }
+
+        @-webkit-keyframes fadeout {
+        from {bottom: 10px; opacity: 1;}
+        to {bottom: 0px; opacity: 0;}
+        }
+
+        @keyframes fadeout {
+        from {bottom: 10px; opacity: 1;}
+        to {bottom: 0px; opacity: 0;}
+        }
+      </style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    // Add smooth scrolling to all links
+    $("a").on('click', function(event) {
+  
+      // Make sure this.hash has a value before overriding default behavior
+      if (this.hash !== "") {
+        // Prevent default anchor click behavior
+        event.preventDefault();
+  
+        // Store hash
+        var hash = this.hash;
+  
+        // Using jQuery's animate() method to add smooth page scroll
+        // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top
+        }, 800, function(){
+     
+          // Add hash (#) to URL when done scrolling (default click behavior)
+          window.location.hash = hash;
+        });
+      } // End if
+    });
+  });
+  </script>
+
+    <script>
+      // Get the button
+      let mybutton = document.getElementById("myBtn");
+      
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function() {scrollFunction()};
+      
+      function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          mybutton.style.display = "block";
+        } else {
+          mybutton.style.display = "none";
+        }
+      }
+      
+      // When the user clicks on the button, scroll to the top of the document
+      function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+      </script>
+
+
+
+    <script>
+      const input = document.querySelector(".inputlarim");
+      input.addEventListener("click", () => {
+        if (input.checked == 1) {
+          document.body.style.overflow = "hidden";
+        } else {
+          document.body.style.overflow = "auto";
+        }
+      });
+    </script>
+  </body>
+</html>

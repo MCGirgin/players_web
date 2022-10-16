@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HOME</title>
+    <link rel="icon" type="image/x-icon" href="images/girgin.ico" />
+    <style>
+      *,
+      *:before,
+      *:after {
+        box-sizing: border-box;
+      }
+
+      label .menu {
+        position: absolute;
+        left: -100px;
+        top: -100px;
+        z-index: 100;
+        width: 200px;
+        height: 200px;
+        background: #282e34;
+        border-radius: 50% 50% 50% 50%;
+        -webkit-transition: 0.5s ease-in-out;
+        transition: 0.5s ease-in-out;
+        box-shadow: 0 0 10px 10px #282e34, 0 0 10px 0 #282e34;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      label .hamburger {
+        position: absolute;
+        top: 135px;
+        right: 50px;
+        width: 30px;
+        height: 3px;
+        background: white;
+        display: block;
+        -webkit-transform-origin: center;
+        transform-origin: center;
+        -webkit-transition: 0.5s ease-in-out;
+        transition: 0.5s ease-in-out;
+        user-select: none;
+      }
+
+      label .hamburger:after,
+      label .hamburger:before {
+        -webkit-transition: 0.5s ease-in-out;
+        transition: 0.5s ease-in-out;
+        content: "";
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: white;
+        user-select: none;
+      }
+
+      label .hamburger:before {
+        top: -10px;
+      }
+
+      label .hamburger:after {
+        bottom: -10px;
+      }
+
+      label input {
+        display: none;
+      }
+
+      label input:checked + .menu {
+        box-shadow: 0 0 50px 100vw #282e34, 0 0 50px 100vw #282e34;
+        border-radius: 0px;
+      }
+
+      label input:checked + .menu .hamburger {
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+
+      label input:checked + .menu .hamburger:after {
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+        bottom: 0;
+      }
+
+      label input:checked + .menu .hamburger:before {
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+        top: 0;
+      }
+
+      label input:checked + .menu + ul {
+        opacity: 1;
+        display: block;
+      }
+
+      label ul {
+        display: none;
+        font-size: 50px;
+        z-index: 200;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        -webkit-transition: 0.25s 0s ease-in-out;
+        transition: 0.25s 0s ease-in-out;
+        list-style: none;
+        -webkit-animation: fade-in 1s, fade-out 1s 965655415458246985s;
+        animation: fade-in 1s, fade-out 1s 965655415458246985s;
+      }
+
+      @-webkit-keyframes fade-in {
+        from {opacity: 0;}
+        to {opacity: 1;}
+        }
+
+        @keyframes fade-in {
+        from {opacity: 0;}
+        to {opacity: 1;}
+        }
+
+        @-webkit-keyframes fade-out {
+        from {opacity: 1;}
+        to {opacity: 0;}
+        }
+
+        @keyframes fade-out {
+        from {opacity: 1;}
+        to {opacity: 0;}
+        }
+
+      label a {
+        margin-bottom: 1em;
+        display: block;
+        color: White;
+        text-decoration: none;
+      }
+
+      h1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        width: 80%;
+        text-align: center;
+      }
+
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        font: 400 15px/1.8 "Lato", sans-serif;
+        color: #777;
+      }
+
+      .bgimg-1,
+      .bgimg-2,
+      .bgimg-3 {
+        position: relative;
+        opacity: 0.65;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .bgimg-1 {
+        background-image: url("images/messi.jpg");
+        min-height: 100%;
+      }
+
+      .bgimg-2 {
+        background-image: url("images/ronaldo2.jpg");
+        min-height: 100%;
+      }
+
+      .bgimg-3 {
+        background-image: url("images/players1.jpg");
+        min-height: 100%;
+      }
+
+      .caption {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        text-align: center;
+        color: #000;
+      }
+
+      .caption span.border {
+        background-color: #111;
+        color: #fff;
+        padding: 18px;
+        font-size: 25px;
+        letter-spacing: 10px;
+        border: 5px solid black;
+        border-radius: 10px;
+      }
+
+      h3 {
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        font: 20px "Lato", sans-serif;
+        color: #111;
+      }
+
+      /* width */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px black;
+        border-radius: 5px;
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: #495159;
+        border-radius: 10px;
+      }
+
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background-color: #282e34;
+      }
+
+      p {
+        font-size: 15px;
+      }
+    </style>
+  </head>
+  <body id="body">
+    <label>
+      <input type="checkbox" class="inputlarim" />
+      <span class="menu"> <span class="hamburger"></span> </span>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="players.html">Players</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </label>
+    
+    
+    <div class="bgimg-3" id="top">
+        <div class="caption">
+            <span class="border">Website For Exploring Players</span>
+        </div>
+    </div>
+    
+
+    <div style="position: relative">
+        <div
+          style="
+            color: #ddd;
+            background-color: #282e34;
+            text-align: center;
+            padding: 10px 80px;
+            text-align: justify;
+          "
+        >
+        </div>
+    </div>
+
+    <div class="bgimg-1">
+        <div class="caption">
+          <a href="players.html" style="text-decoration: none;">
+            <span class="border">PLAYERS</span>
+          </a>
+        </div>
+    </div>
+
+    <div style="position: relative">
+        <div
+          style="
+            color: #ddd;
+            background-color: #282e34;
+            text-align: center;
+            padding: 10px 80px;
+            text-align: justify;
+          "
+        >
+        </div>
+    </div>
+
+    <div class="bgimg-2">
+        <div class="caption">
+          <a href="contact.html" style="text-decoration: none;">
+            <span class="border">CONTACT</span>
+          </a>
+        </div>
+    </div>
+    
+    <div style="position: relative">
+        <div
+          style="
+            color: #ddd;
+            background-color: #282e34;
+            text-align: center;
+            padding: 10px 80px;
+            text-align: justify;
+          "
+        >
+          
+        </div>
+    </div>
+
+    <div style="position: relative">
+      <div
+        style="
+          color: #ddd;
+          background-color: #282e34;
+          text-align: center;
+          padding: 10px 80px;
+          text-align: justify;
+        "
+      >
+        <p>
+          This website has built by MCGirgin®. If you want to contact with stuff, you can go <a href="contact.html" style="color: white">contact</a> page. 
+        </p>
+      </div>
+    </div>
+
+    <a href="#top">
+      <button   id="myBtn" title="Go to top">▲</button>
+    </a>
+
+    <style>
+      #myBtn {
+        display: none;
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        z-index: 99;
+        font-size: 18px;
+        border: none;
+        outline: none;
+        background-color: #282e34;
+        border: 5px solid black;
+        color: white;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 20px;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 965655415458246985s;
+      }
+      
+      #myBtn:hover {
+        background-color: #555;
+      }
+
+      @-webkit-keyframes fadein {
+        from {bottom: 0px; opacity: 0;}
+        to {bottom: 10px; opacity: 1;}
+        }
+
+        @keyframes fadein {
+        from {bottom: 0px; opacity: 0;}
+        to {bottom: 10px; opacity: 1;}
+        }
+
+        @-webkit-keyframes fadeout {
+        from {bottom: 10px; opacity: 1;}
+        to {bottom: 0px; opacity: 0;}
+        }
+
+        @keyframes fadeout {
+        from {bottom: 10px; opacity: 1;}
+        to {bottom: 0px; opacity: 0;}
+        }
+    </style>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    // Add smooth scrolling to all links
+    $("a").on('click', function(event) {
+  
+      // Make sure this.hash has a value before overriding default behavior
+      if (this.hash !== "") {
+        // Prevent default anchor click behavior
+        event.preventDefault();
+  
+        // Store hash
+        var hash = this.hash;
+  
+        // Using jQuery's animate() method to add smooth page scroll
+        // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top
+        }, 800, function(){
+     
+          // Add hash (#) to URL when done scrolling (default click behavior)
+          window.location.hash = hash;
+        });
+      } // End if
+    });
+  });
+  </script>
+
+    <script>
+      // Get the button
+      let mybutton = document.getElementById("myBtn");
+      
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function() {scrollFunction()};
+      
+      function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          mybutton.style.display = "block";
+        } else {
+          mybutton.style.display = "none";
+        }
+      }
+      
+      // When the user clicks on the button, scroll to the top of the document
+      function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+      </script>
+
+
+    <script>
+      const input = document.querySelector(".inputlarim");
+      input.addEventListener("click", () => {
+        if (input.checked == 1) {
+          document.body.style.overflow = "hidden";
+        } else {
+          document.body.style.overflow = "auto";
+        }
+      });
+    </script>
+  </body>
+</html>

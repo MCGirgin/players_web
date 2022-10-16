@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact</title>
+    <link rel="icon" type="image/x-icon" href="images/girgin.ico" />
+    <style>
+      *,
+      *:before,
+      *:after {
+        box-sizing: border-box;
+      }
+
+      label .menu {
+        position: absolute;
+        left: -100px;
+        top: -100px;
+        z-index: 100;
+        width: 200px;
+        height: 200px;
+        background: #282e34;
+        border-radius: 50% 50% 50% 50%;
+        -webkit-transition: 0.5s ease-in-out;
+        transition: 0.5s ease-in-out;
+        box-shadow: 0 0 10px 10px #282e34, 0 0 10px 0 #282e34;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      label .hamburger {
+        position: absolute;
+        top: 135px;
+        right: 50px;
+        width: 30px;
+        height: 3px;
+        background: white;
+        display: block;
+        -webkit-transform-origin: center;
+        transform-origin: center;
+        -webkit-transition: 0.5s ease-in-out;
+        transition: 0.5s ease-in-out;
+        user-select: none;
+      }
+
+      label .hamburger:after,
+      label .hamburger:before {
+        -webkit-transition: 0.5s ease-in-out;
+        transition: 0.5s ease-in-out;
+        content: "";
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: white;
+        user-select: none;
+      }
+
+      label .hamburger:before {
+        top: -10px;
+      }
+
+      label .hamburger:after {
+        bottom: -10px;
+      }
+
+      label input {
+        display: none;
+      }
+
+      label input:checked + .menu {
+        box-shadow: 0 0 50px 100vw #282e34, 0 0 50px 100vw #282e34;
+        border-radius: 0px;
+      }
+
+      label input:checked + .menu .hamburger {
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+
+      label input:checked + .menu .hamburger:after {
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+        bottom: 0;
+      }
+
+      label input:checked + .menu .hamburger:before {
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+        top: 0;
+      }
+
+      label input:checked + .menu + ul {
+        opacity: 1;
+        display: block;
+      }
+
+      label ul {
+        display: none;
+        font-size: 50px;
+        z-index: 200;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        -webkit-transition: 0.25s 0s ease-in-out;
+        transition: 0.25s 0s ease-in-out;
+        list-style: none;
+        -webkit-animation: fade-in 1s, fade-out 1s 965655415458246985s;
+        animation: fade-in 1s, fade-out 1s 965655415458246985s;
+      }
+
+      @-webkit-keyframes fade-in {
+        from {opacity: 0;}
+        to {opacity: 1;}
+        }
+
+        @keyframes fade-in {
+        from {opacity: 0;}
+        to {opacity: 1;}
+        }
+
+        @-webkit-keyframes fade-out {
+        from {opacity: 1;}
+        to {opacity: 0;}
+        }
+
+        @keyframes fade-out {
+        from {opacity: 1;}
+        to {opacity: 0;}
+        }
+        
+      label a {
+        margin-bottom: 1em;
+        display: block;
+        color: White;
+        text-decoration: none;
+      }
+
+      h1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        width: 80%;
+        text-align: center;
+      }
+
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        font: 400 15px/1.8 "Lato", sans-serif;
+        background-color: gray;
+      }
+
+      .bgimg-1,
+      .bgimg-2,
+      .bgimg-3 {
+        position: relative;
+        opacity: 0.65;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .bgimg-1 {
+        background-image: url("images/messi.jpg");
+        min-height: 100%;
+      }
+
+      .bgimg-2 {
+        background-image: url("images/ronaldo2.jpg");
+        min-height: 100%;
+      }
+
+      .bgimg-3 {
+        background-image: url("images/players1.jpg");
+        min-height: 100%;
+      }
+
+      .caption {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        text-align: center;
+        color: #000;
+      }
+
+      .caption span.border {
+        background-color: #111;
+        color: #fff;
+        padding: 18px;
+        font-size: 25px;
+        letter-spacing: 10px;
+        border: 5px solid black;
+        border-radius: 10px;
+      }
+
+
+      h3 {
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        font: 20px "Lato", sans-serif;
+        color: #111;
+      }
+
+      /* width */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px black;
+        border-radius: 5px;
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: #495159;
+        border-radius: 10px;
+      }
+
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background-color: #282e34;
+      }
+
+      p {
+        font-size: 15px;
+      }
+
+      .custom {
+        background-color: #282e34;
+        color: #fff;
+        padding: 18px;
+        font-size: 25px;
+        letter-spacing: 10px;
+        border: 5px solid black;
+        border-radius: 10px;
+        width: 50%;
+        left: 50%;
+        margin: auto;
+      }
+
+    </style>
+  </head>
+  <body id="body">
+    <label>
+      <input type="checkbox" class="inputlarim" />
+      <span class="menu"> <span class="hamburger"></span> </span>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="players.html">Players</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </label>
+    
+
+
+    <div class="bgimg-2">
+        <div class="caption">
+          <a href="ronaldo.html" style="text-decoration: none;">
+            <span class="border">Mahir Çınar Girgin</span> 
+          </a>
+          <div class="custom">
+            <ul  style="list-style: none; font-size: 15px;">
+                <li>Discord - MCGirgin#3957</li>
+                <li><a href="https://www.instagram.com/mcgirginn/" style="text-decoration: none; color: white">Instagram - mcgirginn</a></li>
+                <li><a href="https://github.com/MCGirgin" style="text-decoration: none; color: white">Github - MCGirgin</a></li>
+                <li><a href="https://www.reddit.com/user/MCGirgin" style="text-decoration: none; color: white">Reddit - MCGirgin</a></li>
+                <li></li>
+            </ul>
+        </div>
+            
+        </div>
+    </div>
+    
+    
+
+
+
+
+    <script>
+      const input = document.querySelector(".inputlarim");
+      input.addEventListener("click", () => {
+        if (input.checked == 1) {
+          document.body.style.overflow = "hidden";
+        } else {
+          document.body.style.overflow = "auto";
+        }
+      });
+    </script>
+  </body>
+</html>
